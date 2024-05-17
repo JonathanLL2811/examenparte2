@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export const ClientesForm = () => {
+export const ClasesForm = () => {
     const [dataForm, setDataForm] = useState({
         nombre: "",
-        edad: "",
-        correo: ""
+        horario: "",
+        duracion: ""
     });
 
     const [resultado, setResultado] = useState("");
@@ -17,7 +17,7 @@ export const ClientesForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/clientes"; // Ajusta la URL según la ruta de tu API
+        const url = "http://localhost:3000/clases"; // Ajusta la URL según la ruta de tu API
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;
@@ -30,11 +30,11 @@ export const ClientesForm = () => {
 
     return (
         <>
-            <h1>Formulario de Clientes</h1>
+            <h1>Formulario de Clases</h1>
             <form onSubmit={submitHandler}>
                 <input name='nombre' placeholder='Nombre' onChange={changeHandler} />
-                <input name='edad' placeholder='Edad' onChange={changeHandler} />
-                <input name='correo' placeholder='Correo' onChange={changeHandler} />
+                <input name='horario' placeholder='Horario' onChange={changeHandler} />
+                <input name='duracion' placeholder='Duración' onChange={changeHandler} />
                 <button type='submit'>Enviar</button>
             </form>
             <p>{resultado}</p>
@@ -42,4 +42,4 @@ export const ClientesForm = () => {
     );
 };
 
-export default ClientesForm;
+export default ClasesForm;
