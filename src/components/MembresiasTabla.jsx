@@ -7,7 +7,7 @@ export const MembresiasTabla = () => {
 
   const cargarMembresias = async (pag) => {
     try {
-      const url = `http://localhost:3000/membresias?page=${pag}`; // Ajusta la URL según la ruta de tu API
+      const url = `http://localhost:3000/membresias?page=${pag}`; 
       const result = await axios.get(url);
       const membresiasData = result.data;
       setMembresias(membresiasData);

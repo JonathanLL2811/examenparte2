@@ -17,7 +17,7 @@ export const ClientesForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/clientes"; // Ajusta la URL según la ruta de tu API
+        const url = "http://localhost:3000/clientes"; 
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;

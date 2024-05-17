@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ClientesForm } from './components/ClientesForm';
-import { TablaClientes } from './components/TablaClientes'; // Ajusta la ruta según la ubicación del archivo
+import { TablaClientes } from './components/TablaClientes'; 
 import { ClasesForm } from './components/ClasesForm';
 import { ClasesTabla } from './components/ClasesTabla'
 import { EntrenadoresForm } from './components/EntrenadoresForm';
@@ -15,7 +15,7 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/clientes' element={<ClientesForm />} />
-        <Route path='/tablaclientes' element={<TablaClientes />} /> {/* Nueva ruta para la tabla de clientes */}
+        <Route path='/tablaclientes' element={<TablaClientes />} /> 
         <Route path='/clases' element={<ClasesForm />} />
         <Route path='/clases-tabla' element={<ClasesTabla />} />
         <Route path='/entrenadores' element={<EntrenadoresForm />} />
