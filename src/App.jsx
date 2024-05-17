@@ -9,7 +9,7 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/clientes' element={<ClientesForm />} />
-        <Route path='/tabla-clientes' element={<TablaClientes />} /> {/* Nueva ruta para la tabla de clientes */}
+        <Route path='/tablaclientes' element={<TablaClientes />} /> {/* Nueva ruta para la tabla de clientes */}
       </Routes>
     </BrowserRouter>
   );
