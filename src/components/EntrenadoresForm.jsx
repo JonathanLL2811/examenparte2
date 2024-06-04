@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const EntrenadoresForm = () => {
     const [dataForm, setDataForm] = useState({
+        id:"",
         nombre: "",
         especialidad: "",
         correo: ""
