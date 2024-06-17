@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ClientesForm } from './components/ClientesForm';
@@ -11,26 +10,27 @@ import { MembresiasForm } from './components/MembresiasForm';
 import { MembresiasTabla } from './components/MembresiasTabla';
 import { LoginForm } from './components/LoginForm';
 import { RegistroAdmin } from './components/RegistroAdmin';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<LoginForm />} />
-      <Route path='/registro' element={<RegistroAdmin />} />
-        <Route path='/clientes' element={<ClientesForm />} />
-        <Route path='/tablaclientes' element={<TablaClientes />} /> 
-        <Route path='/clases' element={<ClasesForm />} />
-        <Route path='/clases-tabla' element={<ClasesTabla />} />
-        <Route path='/entrenadores' element={<EntrenadoresForm />} />
-        <Route path='/entrenadores-tabla' element={<EntrenadoresTabla />} />
-        <Route path='/membresias' element={<MembresiasForm />} />
-          <Route path='/membresias-tabla' element={<MembresiasTabla />} />
-      
+        <Route path='/' element={<LoginForm />} />
+        <Route path='/registro' element={<RegistroAdmin />} />
+        <Route path='/clientes' element={<ProtectedRoute><ClientesForm /></ProtectedRoute>} />
+        <Route path='/tablaclientes' element={<ProtectedRoute><TablaClientes /></ProtectedRoute>} />
+        <Route path='/clases' element={<ProtectedRoute><ClasesForm /></ProtectedRoute>} />
+        <Route path='/clases-tabla' element={<ProtectedRoute><ClasesTabla /></ProtectedRoute>} />
+        <Route path='/entrenadores' element={<ProtectedRoute><EntrenadoresForm /></ProtectedRoute>} />
+        <Route path='/entrenadores-tabla' element={<ProtectedRoute><EntrenadoresTabla /></ProtectedRoute>} />
+        <Route path='/membresias' element={<ProtectedRoute><MembresiasForm /></ProtectedRoute>} />
+        <Route path='/membresias-tabla' element={<ProtectedRoute><MembresiasTabla /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );
 };
+
 
 export default App;
 

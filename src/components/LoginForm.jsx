@@ -1,5 +1,7 @@
+// components/LoginForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
     const [credentials, setCredentials] = useState({
@@ -8,6 +10,7 @@ export const LoginForm = () => {
     });
 
     const [resultado, setResultado] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -16,13 +19,14 @@ export const LoginForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/api/login";
+        const url = "http://localhost:5000/api/login";
 
         try {
             const result = await axios.post(url, credentials);
             const token = result.data.token;
             localStorage.setItem('token', token); // Guardar el token en el localStorage
             setResultado("Inicio de sesión exitoso");
+            navigate('/clientes'); // Redirigir a una ruta protegida
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
             setResultado("Credenciales inválidas");

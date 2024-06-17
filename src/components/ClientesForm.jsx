@@ -17,7 +17,7 @@ export const ClientesForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/clientes"; 
+        const url = "http://localhost:5000/Api/clientes"; 
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;
