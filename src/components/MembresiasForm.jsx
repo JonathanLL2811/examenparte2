@@ -17,7 +17,7 @@ export const MembresiasForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/membresias"; 
+        const url = "http://localhost:5000/api/membresias"; 
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;

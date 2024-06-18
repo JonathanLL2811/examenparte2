@@ -7,7 +7,7 @@ export const EntrenadoresTabla = () => {
 
   const cargarEntrenadores = async (pag) => {
     try {
-      const url = `http://localhost:3000/entrenadores`; 
+      const url = `http://localhost:5000/api/entrenadores`; 
       const result = await axios.get(url);
       const entrenadoresData = result.data;
       setEntrenadores(entrenadoresData);

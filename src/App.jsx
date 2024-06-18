@@ -19,13 +19,19 @@ export const App = () => {
         <Route path='/' element={<LoginForm />} />
         <Route path='/registro' element={<RegistroAdmin />} />
         <Route path='/clientes' element={<ProtectedRoute><ClientesForm /></ProtectedRoute>} />
-        <Route path='/tablaclientes' element={<ProtectedRoute><TablaClientes /></ProtectedRoute>} />
+        <Route path='/api/clientes' element={<ProtectedRoute><TablaClientes /></ProtectedRoute>} />
         <Route path='/clases' element={<ProtectedRoute><ClasesForm /></ProtectedRoute>} />
-        <Route path='/clases-tabla' element={<ProtectedRoute><ClasesTabla /></ProtectedRoute>} />
-        <Route path='/entrenadores' element={<ProtectedRoute><EntrenadoresForm /></ProtectedRoute>} />
+
+        <Route path='/api/clases' element={<ProtectedRoute><ClasesTabla /></ProtectedRoute>} />   // no funciona...
+
+        <Route path='/api/entrenadores' element={<ProtectedRoute><EntrenadoresForm /></ProtectedRoute>} />
         <Route path='/entrenadores-tabla' element={<ProtectedRoute><EntrenadoresTabla /></ProtectedRoute>} />
         <Route path='/membresias' element={<ProtectedRoute><MembresiasForm /></ProtectedRoute>} />
-        <Route path='/membresias-tabla' element={<ProtectedRoute><MembresiasTabla /></ProtectedRoute>} />
+
+
+        <Route path='/membresias-tabla' element={<ProtectedRoute><MembresiasTabla /></ProtectedRoute>} /> // no funciona...
+
+
       </Routes>
     </BrowserRouter>
   );

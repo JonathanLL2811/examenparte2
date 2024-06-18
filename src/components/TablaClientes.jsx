@@ -7,7 +7,7 @@ export const TablaClientes = () => {
 
   const cargarClientes = async (pag) => {
     try {
-      const url = `http://localhost:5000/clientes?page=${pag}`;
+      const url = `http://localhost:5000/api/clientes`;
       const result = await axios.get(url);
       const clientesData = result.data;
       setClientes(clientesData);

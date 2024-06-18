@@ -17,7 +17,7 @@ export const ClasesForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/clases"; 
+        const url = "http://localhost:5000/api/clases"; 
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;

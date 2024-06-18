@@ -7,7 +7,7 @@ export const ClasesTabla = () => {
 
   const cargarClases = async (pag) => {
     try {
-      const url = `http://localhost:3000/clientes`; 
+      const url = `http://localhost:5000/api/clases`; 
       const result = await axios.get(url);
       const clasesData = result.data;
       setClases(clasesData);

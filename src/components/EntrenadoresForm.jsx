@@ -18,7 +18,7 @@ export const EntrenadoresForm = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/entrenadores"; 
+        const url = "http://localhost:5000/api/entrenadores"; 
         try {
             const result = await axios.post(url, dataForm);
             const dataResult = result.data;
