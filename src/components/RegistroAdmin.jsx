@@ -17,7 +17,7 @@ export const RegistroAdmin = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const url = "http://localhost:3000/api/registroadmin";
+        const url = "http://localhost:5000/api/administradores";
 
         try {
             const result = await axios.post(url, registro);
