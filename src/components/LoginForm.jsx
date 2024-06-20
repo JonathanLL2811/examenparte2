@@ -1,5 +1,3 @@
-// components/LoginForm.jsx
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -48,4 +46,4 @@ const LoginForm = ({ onLogin }) => {
     );
 };
 
-export default LoginForm;  // Asegúrate de exportar el componente de esta manera
+export default LoginForm;

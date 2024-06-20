@@ -12,12 +12,13 @@ import MembresiasForm from './components/MembresiasForm';
 import MembresiasTabla from './components/MembresiasTabla';
 import './App.css'; // Importar archivo CSS para estilos globales
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importar estilos de Bootstrap
+import axios from 'axios';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     setIsLoggedIn(!!token); // Establece isLoggedIn a true si hay un token en localStorage
   }, []);
 
@@ -26,9 +27,8 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('token');
     setIsLoggedIn(false); // Actualiza el estado de isLoggedIn al cerrar sesión
-    return <Navigate to="/" replace={true} />; // Redirige al inicio de sesión después de cerrar sesión
   };
 
   return (
@@ -43,10 +43,10 @@ const App = () => {
 
         <main>
           <Routes>
-            {isLoggedIn ? (
+            <Route path="/" element={isLoggedIn ? <Navigate to="/clientes" /> : <LoginForm onLogin={handleLogin} />} />
+            <Route path="/registro" element={<RegistroAdmin />} />
+            {isLoggedIn && (
               <>
-                <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
-                <Route path="/registro" element={<RegistroAdmin />} />
                 <Route path="/clientes" element={<ClientesForm />} />
                 <Route path="/api/clientes" element={<TablaClientes />} />
                 <Route path="/clases" element={<ClasesForm />} />
@@ -56,8 +56,6 @@ const App = () => {
                 <Route path="/membresias" element={<MembresiasForm />} />
                 <Route path="/api/membresias" element={<MembresiasTabla />} />
               </>
-            ) : (
-              <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
             )}
           </Routes>
         </main>
