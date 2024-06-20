@@ -31,7 +31,7 @@ export const TablaClientes = () => {
         <button className="btn btn-primary me-2" onClick={() => handlerClick(1)}>1</button>
         <button className="btn btn-primary" onClick={() => handlerClick(2)}>2</button>
       </div>
-      <div className="table-responsive">
+      <div className="table">
         <table className="table table-striped table-hover">
           <thead className="table-dark">
             <tr>

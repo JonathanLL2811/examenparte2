@@ -100,9 +100,9 @@ footer {
 /* Estilos para la tabla */
 .table {
   width: 100%;
-  background-color: #f8f9fa; /* Color de fondo claro para la tabla */
+  background-color: #f8f9fa; /* Color de fondo claro para todas las tablas */
   border-collapse: collapse; /* Colapso de bordes */
-  margin-top: 20px; /* Espacio arriba de la tabla */
+  margin-top: 20px; /* Espacio arriba de todas las tablas */
 }
 
 .table th,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export const RegistroAdmin = () => {
+const RegistroAdmin = () => {
     const [registro, setRegistro] = useState({
         nombre: "",
         correo: "",
@@ -22,11 +22,18 @@ export const RegistroAdmin = () => {
         try {
             const result = await axios.post(url, registro);
             const mensaje = result.data.message;
-            setResultado(mensaje);
+            setResultado("Éxito al registrar administrador: " + mensaje); // Mensaje de éxito
+            window.location.href = "/";
+            setRegistro({ nombre: "", correo: "", contraseña: "" }); // Limpiar el formulario
         } catch (error) {
             console.error("Error al registrar administrador:", error);
             setResultado("Error al registrar administrador");
         }
+    }
+
+    const handleVolver = () => {
+        // Redireccionar al inicio de sesión (puedes ajustar la URL según tu estructura de rutas)
+       
     }
 
     return (
@@ -40,6 +47,7 @@ export const RegistroAdmin = () => {
                         name="nombre" 
                         className="form-control" 
                         placeholder="Nombre" 
+                        value={registro.nombre} 
                         onChange={handleChange} 
                         required
                     />
@@ -51,6 +59,7 @@ export const RegistroAdmin = () => {
                         name="correo" 
                         className="form-control" 
                         placeholder="Correo electrónico" 
+                        value={registro.correo} 
                         onChange={handleChange} 
                         required
                     />
@@ -62,16 +71,20 @@ export const RegistroAdmin = () => {
                         name="contraseña" 
                         className="form-control" 
                         placeholder="Contraseña" 
+                        value={registro.contraseña} 
                         onChange={handleChange} 
                         required
                     />
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Registrar</button>
             </form>
-            {resultado && <p className="mt-3 text-center">{resultado}</p>}
+            {resultado && <p className={`mt-3 text-center ${resultado.includes('Éxito') ? 'text-success' : 'text-danger'}`}>{resultado}</p>}
+            <div className="mt-3 text-center">
+               
+            </div>
         </div>
     );
 };
 
-
 export default RegistroAdmin;
+
