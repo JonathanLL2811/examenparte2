@@ -1,9 +1,10 @@
 // components/LoginForm.jsx
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
     const [credentials, setCredentials] = useState({
         correo: "",
         contraseña: ""
@@ -26,7 +27,8 @@ export const LoginForm = () => {
             const token = result.data.token;
             localStorage.setItem('token', token); // Guardar el token en el localStorage
             setResultado("Inicio de sesión exitoso");
-            navigate('/clientes'); // Redirigir a una ruta protegida
+            onLogin(); // Actualizar el estado de isLoggedIn en App
+            navigate('/clientes'); // Redirigir a una ruta protegida después de iniciar sesión
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
             setResultado("Credenciales inválidas");
@@ -46,4 +48,4 @@ export const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default LoginForm;  // Asegúrate de exportar el componente de esta manera

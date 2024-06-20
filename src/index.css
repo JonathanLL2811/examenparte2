@@ -5,8 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(135deg, #7d43e7, #5e49b9);
-  
+  background-color: #242424;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,18 +15,17 @@
 
 a {
   font-weight: 500;
-  color: #b1a0ff;
+  color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #a78aff;
+  color: #535bf2;
 }
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -34,35 +33,40 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #ffffff;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid transparent;
-  padding: 0.8em 1.6em;
-  font-size: 1.2em;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background: linear-gradient(135deg, #6d43b9, #492c94);
+  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.5s;
+  margin-bottom: 30px;
+  display: inline-block; 
+  margin-right: 10px; 
 }
+
 button:hover {
-  border-color: #a78aff;
+  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-input {
-  padding: 0.8em;
-  font-size: 1.2em;
-  border-radius: 8px;
-  border: 2px solid #a78aff;
-  background-color: #ffffff;
-  color: #333333;
-  width: 100%;
-  margin-bottom: 1em;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }

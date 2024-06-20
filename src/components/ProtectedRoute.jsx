@@ -1,17 +1,14 @@
 // components/ProtectedRoute.jsx
+
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
-
-  if (!token) {
-    // Si no hay token, redirige a la página de inicio de sesión
-    return <Navigate to="/" />;
-  }
-
-  // Si hay token, renderiza los componentes hijos
-  return children;
+const ProtectedRoute = ({ element, isLoggedIn }) => {
+  return isLoggedIn ? (
+    element
+  ) : (
+    <Navigate to="/" replace={true} /> // Redirige al inicio de sesión si no está autenticado
+  );
 };
 
 export default ProtectedRoute;
