@@ -34,16 +34,35 @@ const LoginForm = ({ onLogin }) => {
     }
 
     return (
-        <>
-            <h1>Inicio de Sesión</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="correo" placeholder="Correo electrónico" onChange={handleChange} />
-                <input type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
-                <button type="submit">Iniciar Sesión</button>
+        <div className="container mt-5">
+            <h1 className="text-center mb-4">Inicio de Sesión</h1>
+            <form onSubmit={handleSubmit} className="border p-4 shadow-sm rounded">
+                <div className="mb-3">
+                    <label htmlFor="correo" className="form-label">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        name="correo" 
+                        className="form-control" 
+                        placeholder="Correo electrónico" 
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="contraseña" className="form-label">Contraseña</label>
+                    <input 
+                        type="password" 
+                        name="contraseña" 
+                        className="form-control" 
+                        placeholder="Contraseña" 
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
             </form>
-            <p>{resultado}</p>
-        </>
+            {resultado && <p className="mt-3 text-center">{resultado}</p>}
+        </div>
     );
 };
-
 export default LoginForm;

@@ -30,17 +30,48 @@ export const RegistroAdmin = () => {
     }
 
     return (
-        <>
-            <h1>Registro de Administrador</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="nombre" placeholder="Nombre" onChange={handleChange} />
-                <input type="email" name="correo" placeholder="Correo electrónico" onChange={handleChange} />
-                <input type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
-                <button type="submit">Registrar</button>
+        <div className="container mt-5">
+            <h1 className="text-center mb-4">Registro de Administrador</h1>
+            <form onSubmit={handleSubmit} className="border p-4 shadow-sm rounded">
+                <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="nombre" 
+                        className="form-control" 
+                        placeholder="Nombre" 
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="correo" className="form-label">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        name="correo" 
+                        className="form-control" 
+                        placeholder="Correo electrónico" 
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="contraseña" className="form-label">Contraseña</label>
+                    <input 
+                        type="password" 
+                        name="contraseña" 
+                        className="form-control" 
+                        placeholder="Contraseña" 
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Registrar</button>
             </form>
-            <p>{resultado}</p>
-        </>
+            {resultado && <p className="mt-3 text-center">{resultado}</p>}
+        </div>
     );
 };
+
 
 export default RegistroAdmin;

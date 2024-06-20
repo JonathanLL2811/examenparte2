@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import RegistroAdmin from './components/RegistroAdmin';
 import ClientesForm from './components/ClientesForm';
@@ -30,26 +30,30 @@ const App = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false); // Actualiza el estado de isLoggedIn al cerrar sesión
     window.location.href = '/';
-    
   };
 
   return (
     <Router>
       <div className="app-container">
         <header>
-          <h1>Examen 2 Jonatha Lorenzana</h1>
-          {isLoggedIn && (
+          <h1>Examen 2 Jonathan Lorenzana</h1>
+          {isLoggedIn ? (
             <button className="btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+          ) : (
+            <>
+              <Link to="/" className="btn btn-primary">Iniciar Sesión</Link>
+              <Link to="/registro" className="btn btn-secondary">Registrar</Link>
+            </>
           )}
         </header>
 
         <main>
           <Routes>
-          <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
+            <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
             <Route path="/registro" element={<RegistroAdmin />} />
             {isLoggedIn && (
               <>
-                <Route path="/clientes" element={isLoggedIn ? <ClientesForm />: <Navigate to="/" />} />
+                <Route path="/clientes" element={<ClientesForm />} />
                 <Route path="/api/clientes" element={<TablaClientes />} />
                 <Route path="/clases" element={<ClasesForm />} />
                 <Route path="/api/clases" element={<ClasesTabla />} />
@@ -71,3 +75,5 @@ const App = () => {
 };
 
 export default App;
+
+

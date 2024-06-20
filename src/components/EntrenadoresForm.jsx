@@ -30,16 +30,46 @@ export const EntrenadoresForm = () => {
     }
 
     return (
-        <>
-            <h1>Formulario de Entrenadores</h1>
-            <form onSubmit={submitHandler}>
-                <input name='nombre' placeholder='Nombre' onChange={changeHandler} />
-                <input name='especialidad' placeholder='Especialidad' onChange={changeHandler} />
-                <input name='correo' placeholder='Correo' onChange={changeHandler} />
-                <button type='submit'>Enviar</button>
+        <div className="container mt-5">
+            <h1 className="text-center mb-4">Formulario de Entrenadores</h1>
+            <form onSubmit={submitHandler} className="border p-4 shadow-sm rounded">
+                <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="nombre" 
+                        className="form-control" 
+                        placeholder="Nombre" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="especialidad" className="form-label">Especialidad</label>
+                    <input 
+                        type="text" 
+                        name="especialidad" 
+                        className="form-control" 
+                        placeholder="Especialidad" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="correo" className="form-label">Correo</label>
+                    <input 
+                        type="email" 
+                        name="correo" 
+                        className="form-control" 
+                        placeholder="Correo" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Enviar</button>
             </form>
-            <p>{resultado}</p>
-        </>
+            {resultado && <p className="mt-3 text-center">{resultado}</p>}
+        </div>
     );
 };
 

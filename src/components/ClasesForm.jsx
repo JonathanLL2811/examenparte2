@@ -29,17 +29,46 @@ export const ClasesForm = () => {
     }
 
     return (
-        <>
-            <h1>Formulario de Clases</h1>
-            <form onSubmit={submitHandler}>
-                <input name='nombre' placeholder='Nombre' onChange={changeHandler} />
-                <input name='horario' placeholder='Horario' onChange={changeHandler} />
-                <input name='duracion' placeholder='Duración' onChange={changeHandler} />
-                <button type='submit'>Enviar</button>
+        <div className="container mt-5">
+            <h1 className="text-center mb-4">Formulario de Clases</h1>
+            <form onSubmit={submitHandler} className="border p-4 shadow-sm rounded">
+                <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="nombre" 
+                        className="form-control" 
+                        placeholder="Nombre" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="horario" className="form-label">Horario</label>
+                    <input 
+                        type="text" 
+                        name="horario" 
+                        className="form-control" 
+                        placeholder="Horario" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="duracion" className="form-label">Duración</label>
+                    <input 
+                        type="text" 
+                        name="duracion" 
+                        className="form-control" 
+                        placeholder="Duración" 
+                        onChange={changeHandler} 
+                        required 
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Enviar</button>
             </form>
-            <p>{resultado}</p>
-        </>
+            {resultado && <p className="mt-3 text-center">{resultado}</p>}
+        </div>
     );
 };
-
 export default ClasesForm;
