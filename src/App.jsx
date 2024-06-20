@@ -65,9 +65,10 @@ const App = () => {
             )}
           </Routes>
         </main>
-
-        <footer>
-          <p>&copy; 2024 Jonathan Jesus Lorenzana Lemus</p>
+        <footer className="footer mt-auto">
+          <div className="container">
+            <p>&copy; 2024 Jonathan Jesus Lorenzana Lemus</p>
+          </div>
         </footer>
       </div>
     </Router>

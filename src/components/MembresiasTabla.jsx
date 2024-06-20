@@ -25,32 +25,37 @@ export const MembresiasTabla = () => {
   }, [pagina]);
 
   return (
-    <>
-      <h3>Lista de Membresías - Página {pagina}</h3>
-      <button onClick={() => handlerClick(1)}>1</button>
-      <button onClick={() => handlerClick(2)}>2</button>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          {membresias.map((membresia) => (
-            <tr key={membresia.id}>
-              <td>{membresia.id}</td>
-              <td>{membresia.nombre}</td>
-              <td>{membresia.precio}</td>
-              <td>{membresia.duracion}</td>
+    <div className="container mt-5">
+      <h3 className="text-center mb-4">Lista de Membresías - Página {pagina}</h3>
+      <div className="d-flex justify-content-center mb-3">
+        <button className="btn btn-primary me-2" onClick={() => handlerClick(1)}>1</button>
+        <button className="btn btn-primary" onClick={() => handlerClick(2)}>2</button>
+      </div>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Duración</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
+          </thead>
+          <tbody>
+            {membresias.map((membresia) => (
+              <tr key={membresia.id}>
+                <td>{membresia.id}</td>
+                <td>{membresia.nombre}</td>
+                <td>{membresia.precio}</td>
+                <td>{membresia.duracion}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
+
 
 export default MembresiasTabla;
