@@ -29,13 +29,15 @@ const App = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false); // Actualiza el estado de isLoggedIn al cerrar sesión
+    window.location.href = '/';
+    
   };
 
   return (
     <Router>
       <div className="app-container">
         <header>
-          <h1>Aplicación con Rutas Protegidas</h1>
+          <h1>Examen 2 Jonatha Lorenzana</h1>
           {isLoggedIn && (
             <button className="btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
           )}
@@ -43,11 +45,11 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={isLoggedIn ? <Navigate to="/clientes" /> : <LoginForm onLogin={handleLogin} />} />
+          <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
             <Route path="/registro" element={<RegistroAdmin />} />
             {isLoggedIn && (
               <>
-                <Route path="/clientes" element={<ClientesForm />} />
+                <Route path="/clientes" element={isLoggedIn ? <ClientesForm />: <Navigate to="/" />} />
                 <Route path="/api/clientes" element={<TablaClientes />} />
                 <Route path="/clases" element={<ClasesForm />} />
                 <Route path="/api/clases" element={<ClasesTabla />} />
