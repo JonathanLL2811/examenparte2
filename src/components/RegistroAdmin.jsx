@@ -32,7 +32,7 @@ const RegistroAdmin = () => {
     }
 
     const handleVolver = () => {
-        // Redireccionar al inicio de sesión (puedes ajustar la URL según tu estructura de rutas)
+        // Redireccionar al inicio de sesión 
        
     }
 
